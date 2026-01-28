@@ -1,0 +1,55 @@
+cloud-platform-portfolio/
+│
+├── README.md
+│
+├── architecture/
+│   ├── saas-reference-platform/
+│   │   ├── architecture-diagram.png
+│   │   ├── architecture.md
+│   │   └── decisions.md
+│   │
+│   ├── enterprise-landing-zone/
+│   │   ├── landing-zone-diagram.png
+│   │   └── landing-zone.md
+│
+├── terraform/
+│   ├── networking/
+│   │   └── main.tf
+│   ├── kubernetes/
+│   │   └── main.tf
+│   └── security/
+│       └── iam.tf
+│
+├── kubernetes/
+│   ├── manifests/
+│   │   ├── app-deployment.yaml
+│   │   ├── service.yaml
+│   │   └── ingress.yaml
+│   └── helm/
+│       └── sample-chart/
+│
+├── cicd/
+│   ├── github-actions/
+│   │   └── pipeline.yaml
+│   └── jenkins/
+│       └── Jenkinsfile
+│
+├── ai-delivery/
+│   ├── ai-dev-workflow.md
+│   ├── test-generation-example.md
+│   └── pr-review-bot.md
+│
+├── sre-observability/
+│   ├── slis-slos.md
+│   ├── prometheus.yaml
+│   └── grafana-dashboard.json
+│
+├── case-studies/
+│   ├── ai-accelerated-delivery.md
+│   ├── cloud-modernization.md
+│   └── devops-transformation.md
+│
+└── docs/
+    ├── production-readiness-checklist.md
+    ├── security-baseline.md
+    └── cost-optimization.md
