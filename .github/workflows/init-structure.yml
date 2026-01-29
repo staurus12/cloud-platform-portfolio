@@ -1,1 +1,35 @@
+name: Initialize Repo Structure
 
+on:
+  workflow_dispatch:
+
+jobs:
+  create-structure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create folders and files
+        run: |
+          mkdir -p cloud-platform-portfolio/{architecture/{saas-reference-platform,enterprise-landing-zone},terraform/{networking,kubernetes,security},kubernetes/{manifests,helm/sample-chart},cicd/{github-actions,jenkins},ai-delivery,sre-observability,case-studies,docs}
+          touch cloud-platform-portfolio/README.md
+          touch cloud-platform-portfolio/architecture/saas-reference-platform/{architecture-diagram.png,architecture.md,decisions.md}
+          touch cloud-platform-portfolio/architecture/enterprise-landing-zone/{landing-zone-diagram.png,landing-zone.md}
+          touch cloud-platform-portfolio/terraform/networking/main.tf
+          touch cloud-platform-portfolio/terraform/kubernetes/main.tf
+          touch cloud-platform-portfolio/terraform/security/iam.tf
+          touch cloud-platform-portfolio/kubernetes/manifests/{app-deployment.yaml,service.yaml,ingress.yaml}
+          touch cloud-platform-portfolio/cicd/github-actions/pipeline.yaml
+          touch cloud-platform-portfolio/cicd/jenkins/Jenkinsfile
+          touch cloud-platform-portfolio/ai-delivery/{ai-dev-workflow.md,test-generation-example.md,pr-review-bot.md}
+          touch cloud-platform-portfolio/sre-observability/{slis-slos.md,prometheus.yaml,grafana-dashboard.json}
+          touch cloud-platform-portfolio/case-studies/{ai-accelerated-delivery.md,cloud-modernization.md,devops-transformation.md}
+          touch cloud-platform-portfolio/docs/{production-readiness-checklist.md,security-baseline.md,cost-optimization.md}
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git commit -m "Auto-generate portfolio structure"
+          git push
